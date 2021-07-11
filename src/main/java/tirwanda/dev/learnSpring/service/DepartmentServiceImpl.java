@@ -34,7 +34,7 @@ public class DepartmentServiceImpl implements DepartmentService{
     public Department departmentById(Long id) throws ResourceNotFoundException {
         Optional<Department> department = departmentRepository.findById(id);
 
-        if(!department.isPresent()) {
+        if(department.isEmpty()) {
             throw new ResourceNotFoundException("Department not found");
         } else {
             return department.get();
